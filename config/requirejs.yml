@@ -1,0 +1,4 @@
+enforceDefine: true
+
+paths:
+  "hbs": "require-handlebars-plugin/hbs"

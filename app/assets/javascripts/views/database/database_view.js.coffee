@@ -1,7 +1,12 @@
-define ["backbone.marionette"], (Marionette) ->
+define [
+  "backbone.marionette"
+  "hbs!templates/database/database_template"
+], (
+  Marionette
+  databaseTemplate
+) ->
   
-  class DatabaseView extends Marionette.ItemView
-    template: "database/database_template"
-  
-    initialize: ->
-      console.log "yoyoyo!"
+  class DatabaseView extends Marionette.LayoutView
+    template: databaseTemplate
+
+      
