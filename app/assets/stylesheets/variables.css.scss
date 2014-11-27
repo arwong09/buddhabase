@@ -1,5 +1,6 @@
 //colors
 $ee: #eeeeee;
+$green: #78b770;
 
 //mixins
 @mixin clear-fix {
@@ -7,5 +8,12 @@ $ee: #eeeeee;
     content: "";
     display: block;
     clear: both;
+  }
+}
+
+@mixin icon($name) {
+  font-family: FontAwesome;
+  @if $name == "check-square" {
+    content: "\f14a"
   }
 }
