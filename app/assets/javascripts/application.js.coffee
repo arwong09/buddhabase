@@ -2,6 +2,7 @@ require [
   "backbone"
   # "env"
   "app"
+  "collections/items"
   "views/database/database_view"
   "jquery"
   "underscore"
@@ -9,6 +10,7 @@ require [
   Backbone
   # ENV
   App
+  Items
   DatabaseView
   $
   _

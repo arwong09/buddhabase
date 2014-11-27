@@ -1,0 +1,22 @@
+#database-region {
+  .database-row {
+    width: 100%;
+    height: 25px;
+    border: 1px solid $ee;
+    margin-bottom: 1px;
+
+    .database-item-col {
+      float: left;
+      padding: 3px;
+      width: 23%;
+
+      &:not(:first-child) {
+        border-left: 1px solid $ee;
+      }
+
+      &:last-child {
+        @include clear-fix;
+      }
+    }
+  }
+}
