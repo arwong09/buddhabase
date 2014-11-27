@@ -10,3 +10,6 @@ define [
 
   class DatabaseTableView extends Marionette.CollectionView
     childView: DatabaseItemView
+
+    addNewItem: ->
+
