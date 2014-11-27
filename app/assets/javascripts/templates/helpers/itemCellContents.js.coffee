@@ -4,4 +4,4 @@ define ["hbs/handlebars"], (Handlebars) ->
     if data
       return data
     else
-      "<input type='text' placeholder='#{cellType}'>"
+      "<input type='text' class='#{cellType.toLowerCase()}' placeholder='#{cellType}'>"

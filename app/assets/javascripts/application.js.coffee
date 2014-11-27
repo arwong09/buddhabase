@@ -21,7 +21,7 @@ require [
   Backbone.history.start()
   app.addRegions
     databaseRegion: "#database-region"
-  
+  app.csrfToken = $("meta[name=csrf-token]").attr("content")
   # ENV[regionName] = app[regionName] for regionName in Object.keys(app._regionManager._regions)
   app.databaseRegion.show new DatabaseView
   

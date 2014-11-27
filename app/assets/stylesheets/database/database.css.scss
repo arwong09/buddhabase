@@ -40,6 +40,10 @@
         float: left;
         color: $green;
         cursor: pointer;
+
+        &:hover {
+          color: $greenHover;
+        }
       }
     }
   }
