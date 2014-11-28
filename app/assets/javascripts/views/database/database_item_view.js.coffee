@@ -15,13 +15,18 @@ define [
   class DatabaseItemView extends Marionette.ItemView
     template: DatabaseItemTemplate
     className: "database-row"
+    modelEvents:
+      "change": "render"
     events:
       "click .save-check-mark": "saveNewItem"
 
     saveNewItem: ->
       $inputs = @$el.find("input[type=text]")
-      _.each($inputs, (input) =>
+      attributes = {state: "saved"}
+      _.each($inputs, (input) ->
         $input = $(input)
-        @model.set("#{$input.prop('class')}", $input.val())
+        attributes["#{$input.prop('class')}"] = $input.val()
       )
-      @model.save()
+      @model.save(attributes)
+
+    

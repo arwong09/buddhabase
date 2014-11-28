@@ -11,7 +11,9 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.generate_new_sku
     if @item.save!
-      redirect_to new_item_url
+      respond_to do |format|
+        format.json { head :ok }
+      end
     else
       render :new
     end
