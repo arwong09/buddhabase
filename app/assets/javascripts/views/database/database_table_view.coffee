@@ -20,7 +20,7 @@ define [
     
     sortByColumn: (event) ->
       sortBy = "#{$(event.target).text()}"
-      if @collection.sortedBy == sortBy
+      if @model.get("sortedBy") == sortBy
         @collection.comparator = (a, b) ->
           if a.get(sortBy) < b.get(sortBy)
             return 1
@@ -28,9 +28,11 @@ define [
             return -1
           else
             return 0
-        @collection.sortedBy = "reverse-#{sortBy}"
+        @model.set("reversed", true)
       else
         @collection.comparator = sortBy
-        @collection.sortedBy = sortBy
+        @model.set("sortedBy", sortBy)
+        @model.set("reversed", false)
       @collection.sort()
       @render()
+      

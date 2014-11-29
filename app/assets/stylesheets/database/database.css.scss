@@ -15,6 +15,7 @@
         padding: 3px;
         background-color: $lightGreen;
         cursor: pointer;
+        @include disable-select;
         
         &:not(:first-child) {
           border-left: 1px solid $ee;
