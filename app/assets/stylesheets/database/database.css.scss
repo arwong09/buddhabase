@@ -7,6 +7,20 @@
 #database-region {
   .database-table {
     padding-right: 25px;
+    
+    .database-header-row {
+      .header-row-cell {
+        float: left;
+        width: 23%;
+        padding: 3px;
+        background-color: $lightGreen;
+        cursor: pointer;
+        
+        &:not(:first-child) {
+          border-left: 1px solid $ee;
+        }
+      }
+    }
 
     .database-row {
       width: 100%;
