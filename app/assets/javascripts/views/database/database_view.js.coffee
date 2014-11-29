@@ -24,7 +24,7 @@ define [
       @buttonsView = new DatabaseButtonsView
       @listenTo(@buttonsView, "addNewItem", @addNewItem)
 
-    onShow: -> # N.B. this needs to change if this view is rendered more than once
+    onShow: -> # N.B. needs to change if this view is rendered more than once
       @buttonsRegion.show(@buttonsView)
 
       @itemsCollection = new ItemsCollection
@@ -36,4 +36,3 @@ define [
 
     addNewItem: ->
       @itemsCollection.add(new ItemModel)
-#      @tableView.addNewItem()

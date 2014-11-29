@@ -15,3 +15,22 @@ define [
     childView: DatabaseItemView
     className: "database-table"
     childViewContainer: "#database-items-container"
+    events:
+      "click .header-row-cell": "sortByColumn"
+    
+    sortByColumn: (event) ->
+      sortBy = "#{$(event.target).text()}"
+      if @collection.sortedBy == sortBy
+        @collection.comparator = (a, b) ->
+          if a.get(sortBy) < b.get(sortBy)
+            return 1
+          else if a.get(sortBy) > b.get(sortBy)
+            return -1
+          else
+            return 0
+        @collection.sortedBy = "reverse-#{sortBy}"
+      else
+        @collection.comparator = sortBy
+        @collection.sortedBy = sortBy
+      @collection.sort()
+      @render()
