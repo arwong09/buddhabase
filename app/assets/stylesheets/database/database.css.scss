@@ -34,6 +34,9 @@
       padding-right: 12px;
       box-shadow: 0 1px 2px rgba(0,0,0,0.1);
       @include clear-fix;
+      font-family: "Roboto Slab";
+      font-weight: 300;
+      font-size: 14px;
       
       .header-row-cell {
         float: left;
