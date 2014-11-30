@@ -38,4 +38,3 @@ define [
 
     addNewItem: ->
       @itemsCollection.add(new ItemModel)
-      
