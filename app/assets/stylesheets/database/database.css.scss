@@ -1,6 +1,7 @@
 @import "buttons";
 
 #buttons-region {
+  margin-right: 15px;
  .add {
    cursor: pointer;
  }
@@ -17,6 +18,7 @@
     width: 90%;
     height: 60%;
     float: right;
+    margin-right: 15px;
   }
   
   .database-table {
@@ -27,16 +29,33 @@
       height: calc(100% - 24px);
       overflow-y: auto;
       overflow-x: hidden;
-      box-shadow: inset 1px -1px 2px rgba(0,0,0,0.1)
+      box-shadow: inset 1px -1px 2px rgba(0,0,0,0.1);
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+      
+      &::-webkit-scrollbar-track {
+        background: none;
+      }
+
+      &::-webkit-scrollbar-thumb {
+          -webkit-border-radius: 10px;
+          border-radius: 4px;
+          height: 10px;
+          background: rgba(88,88,88,0.3)
+      }
+      
+      &::-webkit-scrollbar-thumb:window-inactive {
+        display: none; 
+      }
     }
     
     .database-header-row {
-      padding-right: 12px;
       box-shadow: 0 1px 2px rgba(0,0,0,0.1);
       @include clear-fix;
       font-family: "Roboto Slab";
       font-weight: 300;
-      font-size: 14px;
+      font-size: 16px;
       
       .header-row-cell {
         float: left;
@@ -46,9 +65,8 @@
         color: $white;
         cursor: pointer;
         @include disable-select;
-        
-        &:not(:first-child) {
-          border-left: 1px solid $white;
+        &:not(:last-child) {
+          border-right: 1px solid #666;
         }
       }
     }
@@ -62,11 +80,11 @@
         float: left;
         padding: 3px;
         width: calc(25% - 7px);
-        color: $g37;
-
-        &:not(:first-child) {
-          border-left: 1px solid $f4;
+        &:last-child {
+          width: calc(25% - 8px);
         }
+        color: $g37;
+        border-right: 1px solid $f4;
 
         &:last-child {
           @include clear-fix;
