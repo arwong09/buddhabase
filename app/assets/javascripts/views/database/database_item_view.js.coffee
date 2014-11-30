@@ -19,6 +19,10 @@ define [
       "change": "render"
     events:
       "click .save-check-mark": "saveNewItem"
+      "click .fa-trash": "deleteItem"
+
+    deleteItem: ->
+      @model.destroy()
 
     saveNewItem: ->
       $inputs = @$el.find("input[type=text]")
