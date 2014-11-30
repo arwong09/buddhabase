@@ -25,6 +25,12 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    item = Item.find(params[:id])
+    item.try(:destroy)
+    
+    respond_to do |format|
+      format.json { head :ok }
+    end
   end
   
   private
