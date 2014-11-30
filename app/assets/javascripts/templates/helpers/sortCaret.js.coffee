@@ -3,6 +3,6 @@ define ["hbs/handlebars"], (Handlebars) ->
   Handlebars.registerHelper "sortCaret", (sortedBy, reversed, name) ->
     return unless sortedBy == name
     if reversed
-      "<i class='fa-caret-up' />"
+      "<i class='fa fa-caret-up' />"
     else 
-      "<i class='fa-caret-down' />"
+      "<i class='fa fa-caret-down' />"

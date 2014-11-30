@@ -19,7 +19,7 @@ define [
       "click .header-row-cell": "sortByColumn"
     
     sortByColumn: (event) ->
-      sortBy = "#{$(event.target).text()}"
+      sortBy = "#{$(event.target).text().trim()}"
       if @model.get("sortedBy") == sortBy
         @collection.comparator = (a, b) ->
           if a.get(sortBy) < b.get(sortBy)
@@ -35,4 +35,3 @@ define [
         @model.set("reversed", false)
       @collection.sort()
       @render()
-      
