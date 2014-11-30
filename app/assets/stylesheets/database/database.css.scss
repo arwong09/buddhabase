@@ -1,3 +1,5 @@
+@import "buttons";
+
 #buttons-region {
  .add {
    cursor: pointer;
@@ -14,29 +16,36 @@
   #table-region {
     width: 90%;
     height: 60%;
+    float: right;
   }
   
   .database-table {
     height: 100%;
+/*    border: 1px solid $dd;*/
     
     #database-items-container {
-      height: 100%;
+      height: calc(100% - 24px);
       overflow-y: auto;
+      overflow-x: hidden;
+      box-shadow: inset 1px -1px 2px rgba(0,0,0,0.1)
     }
     
     .database-header-row {
+      padding-right: 12px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
       @include clear-fix;
       
       .header-row-cell {
         float: left;
-        width: 23%;
+        width: calc(25% - 7px);
         padding: 3px;
-        background-color: $lightGreen;
+        background-color: $g88;
+        color: $white;
         cursor: pointer;
         @include disable-select;
         
         &:not(:first-child) {
-          border-left: 1px solid $ee;
+          border-left: 1px solid $white;
         }
       }
     }
@@ -44,16 +53,16 @@
     .database-row {
       width: 100%;
       height: 25px;
-      border: 1px solid $ee;
-      margin-bottom: 1px;
+      border-bottom: 1px solid $f4;
 
       .database-item-col {
         float: left;
         padding: 3px;
-        width: 23%;
+        width: calc(25% - 7px);
+        color: $g37;
 
         &:not(:first-child) {
-          border-left: 1px solid $ee;
+          border-left: 1px solid $f4;
         }
 
         &:last-child {
