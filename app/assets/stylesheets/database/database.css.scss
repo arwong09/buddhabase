@@ -5,8 +5,24 @@
 }
 
 #database-region {
+  height: 100%;
+  
+  .database-container {
+    height: 100%;
+  }
+  
+  #table-region {
+    width: 90%;
+    height: 60%;
+  }
+  
   .database-table {
-    padding-right: 25px;
+    height: 100%;
+    
+    #database-items-container {
+      height: 100%;
+      overflow-y: auto;
+    }
     
     .database-header-row {
       @include clear-fix;

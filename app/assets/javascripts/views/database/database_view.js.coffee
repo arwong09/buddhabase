@@ -18,6 +18,7 @@ define [
   
   class DatabaseView extends Marionette.LayoutView
     template: databaseTemplate
+    className: "database-container"
     regions:
       tableRegion: "#table-region"
       buttonsRegion: "#buttons-region"
