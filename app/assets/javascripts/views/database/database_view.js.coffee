@@ -18,6 +18,7 @@ define [
   
   class DatabaseView extends Marionette.LayoutView
     template: databaseTemplate
+    className: "database-container"
     regions:
       tableRegion: "#table-region"
       buttonsRegion: "#buttons-region"
@@ -31,11 +32,9 @@ define [
 
       @itemsCollection = new ItemsCollection
       @tableModel = new TableModel
-      fetchPromise = @itemsCollection.fetch()
-      fetchPromise.done =>
-        @tableView = new DatabaseTableView(collection: @itemsCollection, model: @tableModel)
-        @tableRegion.show(@tableView)
-      fetchPromise.fail -> console.error "itemsCollection fetch failed"
+      @itemsCollection.fetch()
+      @tableView = new DatabaseTableView(collection: @itemsCollection, model: @tableModel)
+      @tableRegion.show(@tableView)
 
     addNewItem: ->
       @itemsCollection.add(new ItemModel)
