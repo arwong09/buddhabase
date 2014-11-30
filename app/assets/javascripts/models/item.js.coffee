@@ -10,3 +10,4 @@ define ["backbone"], (Backbone) ->
 
     initalize: (itemData) ->
       @set itemData
+      
