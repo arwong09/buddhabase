@@ -25,17 +25,15 @@ define [
     initialize: ->
       @buttonsView = new DatabaseButtonsView
       @listenTo(@buttonsView, "addNewItem", @addNewItem)
-
+      
     onShow: -> # N.B. needs to change if this view is rendered more than once
       @buttonsRegion.show(@buttonsView)
 
       @itemsCollection = new ItemsCollection
       @tableModel = new TableModel
-      fetchPromise = @itemsCollection.fetch()
-      fetchPromise.done =>
-        @tableView = new DatabaseTableView(collection: @itemsCollection, model: @tableModel)
-        @tableRegion.show(@tableView)
-      fetchPromise.fail -> console.error "itemsCollection fetch failed"
+      @itemsCollection.fetch()
+      @tableView = new DatabaseTableView(collection: @itemsCollection, model: @tableModel)
+      @tableRegion.show(@tableView)
 
     addNewItem: ->
       @itemsCollection.add(new ItemModel)

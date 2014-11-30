@@ -9,6 +9,8 @@
     padding-right: 25px;
     
     .database-header-row {
+      @include clear-fix;
+      
       .header-row-cell {
         float: left;
         width: 23%;
