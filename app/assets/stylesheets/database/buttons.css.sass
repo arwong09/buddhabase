@@ -23,14 +23,14 @@
 #search-toggle
   display: none
 
-#search-bar
+.search-bar
   display: inline-block
   height: 25px
   width: 0px
   opacity: 0
   text-align: center
-  transition: width 1s, opacity 1s
+  transition: width 0.75s, opacity 0.75s
 
-#search-toggle:checked + #search-bar
+#search-toggle:checked + .search-bar
   opacity: 1
   width: 150px
