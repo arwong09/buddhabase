@@ -11,7 +11,7 @@ define [
   class DatabaseButtonsView extends Marionette.ItemView
     template: DatabaseButtonsTemplate
     events:
-      "click .btn-add": "addNewItem"
+      "click .btn-add" : "addNewItem"
 
     addNewItem: ->
       @trigger("addNewItem")

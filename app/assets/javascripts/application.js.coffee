@@ -1,6 +1,7 @@
 require [
   "backbone"
   # "env"
+  "backbone.marionette.modals"
   "app"
   "collections/items"
   "views/database/database_view"
@@ -9,6 +10,7 @@ require [
 ], (
   Backbone
   # ENV
+  Modals
   App
   Items
   DatabaseView
@@ -21,6 +23,10 @@ require [
   Backbone.history.start()
   app.addRegions
     databaseRegion: "#database-region"
+    modalRegion: 
+      selector: "#modal-region"
+      regionClass: Modals
+
   app.csrfToken = $("meta[name=csrf-token]").attr("content")
   # ENV[regionName] = app[regionName] for regionName in Object.keys(app._regionManager._regions)
   app.databaseRegion.show new DatabaseView
