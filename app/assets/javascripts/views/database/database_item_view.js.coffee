@@ -1,12 +1,14 @@
 define [
   "backbone"
   "backbone.marionette"
+  "views/modals/item_modal"
   "hbs!templates/database/database_item_template"
   "jquery"
   "underscore"
 ], (
   Backbone
   Marionette
+  ItemModal
   DatabaseItemTemplate
   $
   _
@@ -18,8 +20,9 @@ define [
     modelEvents:
       "change": "render"
     events:
-      "click .fa-check-square": "saveNewItem"
-      "click .fa-trash": "deleteItem"
+      "click .fa-check-square"   : "saveNewItem"
+      "click .fa-trash"          : "deleteItem"
+      "dblclick .database-item-col" : "showItemModal"
 
     deleteItem: ->
       @model.destroy()
@@ -33,4 +36,6 @@ define [
       )
       @model.save(attributes)
 
+    showItemModal: ->
+      app.modalRegion.show(new ItemModal)
     
