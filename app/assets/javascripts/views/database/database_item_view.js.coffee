@@ -18,7 +18,7 @@ define [
     modelEvents:
       "change": "render"
     events:
-      "click .save-check-mark": "saveNewItem"
+      "click .fa-check-square": "saveNewItem"
       "click .fa-trash": "deleteItem"
 
     deleteItem: ->
