@@ -26,11 +26,19 @@
     
     #database-items-container {
       height: calc(100% - 24px);
-      overflow-y: auto;
-      overflow-x: hidden;
+      overflow: hidden;
       box-shadow: inset 1px -1px 2px rgba(0,0,0,0.1);
+      
       &::-webkit-scrollbar {
-        width: 0;
+        width: 6px;
+        visibility: hidden;
+      }
+      
+      &:hover {
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+          visibility: visible;
+        }
       }
       
       &::-webkit-scrollbar-track {
@@ -80,7 +88,7 @@
         padding: 3px;
         width: calc(25% - 7px);
         &:last-child {
-          width: calc(25% - 8px);
+          width: calc(25% - 14px);
         }
         color: $g37;
         border-right: 1px solid $f4;
@@ -88,6 +96,10 @@
         &:last-child {
           @include clear-fix;
         }
+      }
+      i {
+        float: right;
+        cursor: pointer;
       }
 
       .save-check-mark {
@@ -99,17 +111,14 @@
         position: relative;
         right: -44px;
         top: -2px;
-        float: left;
         color: $green;
-        cursor: pointer;
 
         &:hover {
           color: $greenHover;
         }
       }
-
       .fa-trash {
-        cursor: pointer;
+        color: $g88;
       }
     }
   }
