@@ -20,9 +20,9 @@ define [
     modelEvents:
       "change": "render"
     events:
-      "click .fa-check-square": "saveNewItem"
-      "click .fa-trash"       : "deleteItem"
-      "click .database-item-col"   : "showItemModal"
+      "click .fa-check-square"   : "saveNewItem"
+      "click .fa-trash"          : "deleteItem"
+      "dblclick .database-item-col" : "showItemModal"
 
     deleteItem: ->
       @model.destroy()
@@ -37,6 +37,5 @@ define [
       @model.save(attributes)
 
     showItemModal: ->
-      console.log("click")
       app.modalRegion.show(new ItemModal)
     

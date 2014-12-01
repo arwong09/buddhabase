@@ -8,6 +8,7 @@
 }
 
 #database-region {
+  height: 100%;
   
   .database-container {
     height: 100%;
@@ -77,6 +78,9 @@
       width: 100%;
       height: 25px;
       border-bottom: 1px solid $f4;
+      cursor: pointer;
+      @include disable-select;
+      
       &:hover {
         background-color: #f9f9f9;
       }
