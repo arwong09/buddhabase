@@ -8,5 +8,12 @@ define ["backbone"], (Backbone) ->
       category: ""
       state: "unsaved"
 
-    initalize: (itemData) ->
+    initialize: (itemData) ->
       @set itemData
+
+    hasSearchTerm: (searchTerm) ->
+      attributes = ["sku", "name", "category", "quantity"]
+      for attribute in attributes
+        return true if @get(attribute).toString() == searchTerm
+
+      false

@@ -15,7 +15,7 @@ define [
   DatabaseTableView
   databaseTemplate
 ) ->
-  
+
   class DatabaseView extends Marionette.LayoutView
     template: databaseTemplate
     className: "database-container"
@@ -26,6 +26,7 @@ define [
     initialize: ->
       @buttonsView = new DatabaseButtonsView
       @listenTo(@buttonsView, "addNewItem", @addNewItem)
+      @listenTo(@buttonsView, "searchItems", @searchItems)
 
     onShow: -> # N.B. needs to change if this view is rendered more than once
       @buttonsRegion.show(@buttonsView)
@@ -38,3 +39,6 @@ define [
 
     addNewItem: ->
       @itemsCollection.add(new ItemModel)
+
+    searchItems: (searchTerm) ->
+      @itemsCollection.filterBySearch(searchTerm)
