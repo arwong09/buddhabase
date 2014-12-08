@@ -41,4 +41,7 @@ define [
       @itemsCollection.add(new ItemModel)
 
     searchItems: (searchTerm) ->
-      @itemsCollection.filterBySearch(searchTerm)
+      filteredCollection = @itemsCollection.clone()
+      filteredCollection.filterBySearch(searchTerm)
+      filteredTableView = new DatabaseTableView(collection: filteredCollection, model: @tableModel)
+      @tableRegion.show(filteredTableView)
