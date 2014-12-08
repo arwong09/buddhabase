@@ -7,5 +7,9 @@ define ["backbone", "models/item"], (Backbone, Item) ->
 
     filterBySearch: (searchTerm) ->
       items = @models
+      filteredItems = []
       for item in items
-        @remove(item) if item.hasSearchTerm(searchTerm)
+        filteredItems.push(item) if item.hasSearchTerm(searchTerm)
+
+      for item in filteredItems
+        @remove(item)
