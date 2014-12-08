@@ -6,7 +6,6 @@ define ["backbone"], (Backbone) ->
       name: ""
       quantity: 0
       category: ""
-      state: "unsaved"
 
     initialize: (itemData) ->
       @set itemData
