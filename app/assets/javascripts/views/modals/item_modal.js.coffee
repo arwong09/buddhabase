@@ -17,10 +17,10 @@ define [
     events:
       "submit form": -> false # don't submit form on enter key down
 
-    # onDestroy: ->
-    #
+    initialize: (@model) ->
+
     onShow: ->
-      @addContentView = new ItemModalView
+      @addContentView = new ItemModalView(@model)
       @addContentView.render()
       @$(".bbm-modal").html @addContentView.$el
 
