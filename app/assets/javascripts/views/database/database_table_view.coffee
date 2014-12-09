@@ -17,7 +17,7 @@ define [
     childViewContainer: "#database-items-container"
     events:
       "click .header-row-cell": "sortByColumn"
-    
+
     sortByColumn: (event) ->
       sortBy = "#{$(event.currentTarget).text().trim()}"
       if @model.get("sortedBy") == sortBy

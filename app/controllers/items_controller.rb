@@ -11,9 +11,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     @item.generate_new_sku
     if @item.save!
-      respond_to do |format|
-        format.json { head :ok }
-      end
+      render json: @item
     else
       render :new
     end
@@ -27,14 +25,14 @@ class ItemsController < ApplicationController
   def destroy
     item = Item.find(params[:id])
     item.try(:destroy)
-    
+
     respond_to do |format|
       format.json { head :ok }
     end
   end
-  
+
   private
-  
+
   def item_params
     params.require(:item).permit(:name, :quantity, :category, :description)
   end

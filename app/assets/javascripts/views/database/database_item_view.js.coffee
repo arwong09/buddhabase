@@ -29,7 +29,7 @@ define [
 
     saveNewItem: ->
       $inputs = @$el.find("input[type=text]")
-      attributes = {state: "saved"}
+      attributes = {}
       _.each($inputs, (input) ->
         $input = $(input)
         attributes["#{$input.prop('class')}"] = $input.val()
@@ -38,4 +38,3 @@ define [
 
     showItemModal: ->
       app.modalRegion.show(new ItemModal)
-    
