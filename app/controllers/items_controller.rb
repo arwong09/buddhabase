@@ -26,9 +26,7 @@ class ItemsController < ApplicationController
     item = Item.find(params[:id])
     item.try(:destroy)
 
-    respond_to do |format|
-      format.json { head :ok }
-    end
+    render status: :ok
   end
 
   private
