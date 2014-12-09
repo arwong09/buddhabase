@@ -27,6 +27,7 @@ define [
       @buttonsView = new DatabaseButtonsView
       @listenTo(@buttonsView, "addNewItem", @addNewItem)
       @listenTo(@buttonsView, "searchItems", @searchItems)
+      @listenTo(@buttonsView, "refreshTable", @refreshTable)
 
     onShow: -> # N.B. needs to change if this view is rendered more than once
       @buttonsRegion.show(@buttonsView)
@@ -44,4 +45,9 @@ define [
       filteredCollection = @itemsCollection.clone()
       filteredCollection.filterBySearch(searchTerm)
       @tableView.collection = filteredCollection
+      @tableView.render()
+
+    refreshTable: ->
+      @itemsCollection.fetch()
+      @tableView.collection = @itemsCollection
       @tableView.render()

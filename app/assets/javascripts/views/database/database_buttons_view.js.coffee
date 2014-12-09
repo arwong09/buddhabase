@@ -12,10 +12,14 @@ define [
     template: DatabaseButtonsTemplate
     events:
       "click .btn-add" : "addNewItem"
+      "click .btn-refresh" : "refreshTable"
       "keyup .search-bar" : "searchItems"
 
     addNewItem: ->
       @trigger("addNewItem")
+
+    refreshTable: ->
+      @trigger("refreshTable")
 
     searchItems: (e) ->
       if e.which == 13
