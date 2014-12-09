@@ -1,4 +1,10 @@
-define ["backbone", "models/item"], (Backbone, Item) ->
+define [
+  "backbone"
+  "models/item"
+], (
+  Backbone
+  Item
+) ->
 
   class Items extends Backbone.Collection
     url: -> "/items"
@@ -6,10 +12,10 @@ define ["backbone", "models/item"], (Backbone, Item) ->
     model: Item
 
     filterBySearch: (searchTerm) ->
-      items = @models
-      filteredItems = []
-      for item in items
-        filteredItems.push(item) if !item.hasSearchTerm(searchTerm)
+      filteredItems = _.filter(@models, (item) ->
+        return !item.hasSearchTerm(searchTerm)
+      )
 
-      for item in filteredItems
+      _.each(filteredItems, (item) =>
         @remove(item)
+      )

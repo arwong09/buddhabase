@@ -38,4 +38,3 @@ define [
 
     showItemModal: ->
       app.modalRegion.show(new ItemModal)
-
