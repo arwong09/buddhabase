@@ -10,6 +10,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem "requirejs-rails"
 gem "font-awesome-rails"
+gem "paperclip"
 
 group :development do
   gem 'spring'
