@@ -17,6 +17,17 @@ module Api
       end
     end
 
+    def update
+      item = Item.find(params[:id])
+      item.assign_attributes(image: params[:image])
+
+      if item.save!
+        render json: {}, status: :ok
+      else
+        render status: :unprocessable_entity
+      end
+    end
+
     def destroy
       item = Item.find(params[:id])
 
@@ -30,7 +41,7 @@ module Api
     private
 
     def item_params
-      params.require(:item).permit(:name, :quantity, :category, :description)
+      params.require(:item).permit(:name, :quantity, :category, :description, :image)
     end
   end
 end

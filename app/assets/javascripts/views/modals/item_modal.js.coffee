@@ -14,15 +14,10 @@ define [
     className: "item-modal"
     template: nothingTemplate
     cancelEl: ".close"
-    events:
-      "submit form": -> false # don't submit form on enter key down
-
-    initialize: (@model) ->
 
     onShow: ->
-      @addContentView = new ItemModalView(@model)
+      @addContentView = new ItemModalView(model: @model)
       @addContentView.render()
       @$(".bbm-modal").html @addContentView.$el
 
-    beforeSubmit: -> false # don't close modal when hitting enter
     clickOutside: -> true # close modal when clicking on background
