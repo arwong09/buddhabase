@@ -19,9 +19,7 @@ module Api
 
     def update
       item = Item.find(params[:id])
-      item.assign_attributes(image: params[:image])
-
-      if item.save!
+      if item.update_attributes(image: params[:image])
         render json: {}, status: :ok
       else
         render status: :unprocessable_entity
