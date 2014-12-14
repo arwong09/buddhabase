@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
   root to: "database#show"
-  resources :items
+
+  namespace :api do
+    resources :items, only: [:index, :create, :destroy]
+  end
 end
