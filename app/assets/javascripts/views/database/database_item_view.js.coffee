@@ -37,4 +37,4 @@ define [
       @model.save(attributes)
 
     showItemModal: ->
-      app.modalRegion.show(new ItemModal(@model))
+      app.modalRegion.show(new ItemModal(model: @model))
