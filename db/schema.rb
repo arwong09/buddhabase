@@ -17,10 +17,10 @@ ActiveRecord::Schema.define(version: 20141214034449) do
   enable_extension "plpgsql"
 
   create_table "items", force: true do |t|
-    t.string   "sku",                null: false
-    t.string   "name",               null: false
-    t.string   "category",           null: false
-    t.integer  "quantity",           null: false
+    t.string   "sku",         null: false
+    t.string   "name",        null: false
+    t.string   "category",    null: false
+    t.integer  "quantity",    null: false
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
