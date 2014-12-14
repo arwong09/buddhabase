@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20141212071656) do
+=======
+ActiveRecord::Schema.define(version: 20141214034449) do
+>>>>>>> 35e1715517846e664bc83d86b589dfa973a805cb
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,5 +33,7 @@ ActiveRecord::Schema.define(version: 20141212071656) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
   end
+
+  add_index "items", ["sku"], name: "index_items_on_sku", unique: true, using: :btree
 
 end

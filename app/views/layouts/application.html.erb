@@ -2,14 +2,13 @@
 <html>
 <head>
   <title>Buddhabase</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= requirejs_include_tag "application" %>
+  <%= stylesheet_link_tag   'application', media: 'all' %>
+  <%= requirejs_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <div id="database-region"></div>
 <div id="modal-region"></div>
-<%= yield %>
-
+  <%= yield %>
 </body>
 </html>
