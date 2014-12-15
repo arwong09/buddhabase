@@ -12,20 +12,27 @@ define [
     template: DatabaseButtonsTemplate
     events:
       "click .btn-add" : "addNewItem"
-      "click .btn-refresh" : "refreshTable"
       "keyup .search-bar" : "searchItems"
-      'input .search-bar' : "showRefreshIcon"
+      "input .search-bar" : "showRefreshIcon"
+      'click .search-bar-close' : "refreshTable"
 
     addNewItem: ->
       @trigger("addNewItem")
 
-    refreshTable: ->
+    refreshTable: (e) ->
+      $refreshIcon = $(e.currentTarget)
+      $searchBar = $refreshIcon.prev()
+
+      $searchBar.val('')
+      $refreshIcon.hide()
+
       @trigger("refreshTable")
 
     showRefreshIcon: (e) ->
       $searchBar = $(e.currentTarget)
+      $refreshIcon = $searchBar.next()
       val = $searchBar.val()
-      if val then $searchBar.addClass('refresh-icon') else $searchBar.removeClass('refresh-icon')
+      if val then $refreshIcon.show() else $refreshIcon.hide()
 
     searchItems: (e) ->
       if e.which == 13
