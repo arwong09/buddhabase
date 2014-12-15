@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: "inventory/items#index"
 
   namespace :api do
-    namespace :database do
+    namespace :inventory do
       resources :items, only: [:index, :create, :update, :destroy]
     end
   end

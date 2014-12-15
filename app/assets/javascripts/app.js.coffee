@@ -11,6 +11,6 @@ define [
 
     initialize: ->
       @addRegions
-        databaseRegion: "#database-region"
+        inventoryRegion: "#inventory-region"
         storefrontRegion: "#storefront-region"
         modalRegion: "#modal-region"

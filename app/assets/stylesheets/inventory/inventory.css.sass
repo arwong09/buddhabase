@@ -5,18 +5,18 @@
   .add
     cursor: pointer
 
-#database-region:not(:empty)
+#inventory-region:not(:empty)
   height: 100%
-  .database-container
+  .inventory-container
     height: 100%
   #table-region
     width: 90%
     height: 60%
     float: right
     margin-right: 15px
-  .database-table
+  .inventory-table
     height: 100%
-    #database-items-container
+    #inventory-items-container
       height: calc(100% - 24px)
       overflow-y: auto
       box-shadow: inset 1px -1px 2px rgba(0, 0, 0, 0.1)
@@ -31,7 +31,7 @@
         background: rgba(88, 88, 88, 0.3)
       &::-webkit-scrollbar-thumb:window-inactive
         display: none
-    .database-header-row
+    .inventory-header-row
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1)
       +clear-fix
       font-family: "Roboto Slab"
@@ -50,7 +50,7 @@
         &:last-child
           width: calc(25% - 6px)
           border-right: none
-    .database-row
+    .inventory-row
       width: 100%
       height: 25px
       border-bottom: 1px solid $f4
@@ -58,7 +58,7 @@
       cursor: pointer
       &:hover
         background-color: #f9f9f9
-      .database-item-col
+      .inventory-item-col
         float: left
         padding: 3px
         width: calc(25% - 6px)

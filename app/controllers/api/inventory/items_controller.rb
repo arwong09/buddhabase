@@ -1,4 +1,4 @@
-class Api::Database::ItemsController < ApplicationController
+class Api::Inventory::ItemsController < ApplicationController
   def index
     items = Item.all
 

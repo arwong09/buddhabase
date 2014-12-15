@@ -2,24 +2,24 @@
 
 define [
   "backbone"
-  "views/database/database_view"
+  "views/inventory/inventory_view"
   "views/storefront/storefront_view"
   "jquery"
 ], (
   Backbone
-  DatabaseView
+  InventoryView
   StorefrontView
   $
 ) ->
 
   class Router extends Backbone.Router
     routes:
-      "": "database" # temporary
-      "inventory/items": "database"
+      "": "inventory" # temporary
+      "inventory/items": "inventory"
       "storefront/browse": "storefront"
 
-    database: ->
-      app.databaseRegion.show new DatabaseView
+    inventory: ->
+      app.inventoryRegion.show new InventoryView
 
     storefront: ->
       app.storefrontRegion.show new StorefrontView
