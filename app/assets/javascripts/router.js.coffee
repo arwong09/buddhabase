@@ -15,7 +15,7 @@ define [
   class Router extends Backbone.Router
     routes:
       "": "database"
-      "api/storefront/browse": "storefront"
+      "storefront/browse": "storefront"
 
     database: ->
       app.databaseRegion.show new DatabaseView

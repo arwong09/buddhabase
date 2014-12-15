@@ -22,3 +22,16 @@ define [
     regions:
       tableRegion: "#table-region"
       buttonsRegion: "#buttons-region"
+
+    initialize: ->
+      @buttonsView = new DatabaseButtonsView
+
+    onShow: ->
+      debugger
+      @buttonsRegion.show(@buttonsView)
+
+      @itemsCollection = new ItemsCollection
+      @tableModel = new TableModel
+      @itemsCollection.fetch()
+      @tableView = new DatabaseTableView(collection: @itemsCollection, model: @tableModel)
+      @tableRegion.show(@tableView)
