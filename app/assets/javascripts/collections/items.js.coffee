@@ -7,7 +7,7 @@ define [
 ) ->
 
   class Items extends Backbone.Collection
-    url: -> "/items"
+    url: -> "/api/items"
     comparator: "sku"
     model: Item
 

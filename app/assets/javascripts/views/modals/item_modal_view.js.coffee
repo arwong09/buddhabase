@@ -11,5 +11,3 @@ define [
   class ItemModalView extends Marionette.ItemView
     className: "item-modal"
     template: itemModalTemplate
-
-    initialize: (@model) ->

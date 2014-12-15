@@ -12,8 +12,16 @@
       <li><span>Quantity: </span>{{quantity}}</li>
     </ul>
   </div>
+
   <div class="modal-body-right">
-    image here.
+    <form action="/api/items/{{id}}" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="_method" value="patch">
+      <input type="file" id="image-input" name="image">
+      <label for="image-input">
+        <i class="fa fa-image" />
+      </label>
+      <input type="submit" value="upload">
+    </form>
   </div>
 </div>
 
