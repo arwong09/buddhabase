@@ -1,8 +1,12 @@
+# global app
+
 define [
   "backbone"
+  "views/storefront/storefront_view"
   "jquery"
 ], (
   Backbone
+  StorefrontView
   $
 ) ->
 
@@ -10,7 +14,7 @@ define [
 
     routes:
       "database": "database"
-      "storefront": "storefront"
+      "api/storefront/browse": "storefront"
 
     storefront: ->
-      debugger
+      app.storefrontRegion.show new StorefrontView

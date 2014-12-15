@@ -1,6 +1,5 @@
 require [
   "backbone"
-  "backbone.marionette.modals"
   "app"
   "collections/items"
   "views/database/database_view"
@@ -8,7 +7,6 @@ require [
   "underscore"
 ], (
   Backbone
-  Modals
   App
   Items
   DatabaseView
@@ -17,13 +15,7 @@ require [
 ) ->
 
   window.app = new App
-  Backbone.history.start()
-  app.addRegions
-    databaseRegion: "#database-region"
-    storefrontRegion: "#storefront-region"
-    modalRegion:
-      selector: "#modal-region"
-      regionClass: Modals
+  Backbone.history.start({pushState: true})
 
   app.csrfToken = $("meta[name=csrf-token]").attr("content")
   app.databaseRegion.show new DatabaseView
