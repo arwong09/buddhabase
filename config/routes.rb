@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
 
     namespace :storefront do
-      resources :items, only: [:index]
+      resources :browse, only: [:index]
     end
   end
 end
