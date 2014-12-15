@@ -14,12 +14,18 @@ define [
       "click .btn-add" : "addNewItem"
       "click .btn-refresh" : "refreshTable"
       "keyup .search-bar" : "searchItems"
+      'input .search-bar' : "showRefreshIcon"
 
     addNewItem: ->
       @trigger("addNewItem")
 
     refreshTable: ->
       @trigger("refreshTable")
+
+    showRefreshIcon: (e) ->
+      $searchBar = $(e.currentTarget)
+      val = $searchBar.val()
+      if val then $searchBar.addClass('refresh-icon') else $searchBar.removeClass('refresh-icon')
 
     searchItems: (e) ->
       if e.which == 13
