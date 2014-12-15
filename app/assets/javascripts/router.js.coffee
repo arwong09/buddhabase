@@ -14,7 +14,8 @@ define [
 
   class Router extends Backbone.Router
     routes:
-      "": "database"
+      "": "database" # temporary
+      "inventory/items": "database"
       "storefront/browse": "storefront"
 
     database: ->
