@@ -35,6 +35,6 @@ define [
       if val then $refreshIcon.show() else $refreshIcon.hide()
 
     searchItems: (e) ->
-      if e.which == 13
+      unless $(e.currentTarget).val() == '' || e.which != 13
         searchTerm = e.currentTarget.value
         @trigger("searchItems", searchTerm)
