@@ -1,20 +1,20 @@
 define [
   "backbone"
   "backbone.marionette"
-  "hbs!templates/database/database_table_template"
-  "views/database/database_item_view"
+  "hbs!templates/inventory/inventory_table_template"
+  "views/inventory/inventory_item_view"
 ], (
   Backbone
   Marionette
-  DatabaseTableTemplate
-  DatabaseItemView
+  InventoryTableTemplate
+  InventoryItemView
 ) ->
 
-  class DatabaseTableView extends Marionette.CompositeView
-    template: DatabaseTableTemplate
-    childView: DatabaseItemView
-    className: "database-table"
-    childViewContainer: "#database-items-container"
+  class InventoryTableView extends Marionette.CompositeView
+    template: InventoryTableTemplate
+    childView: InventoryItemView
+    className: "inventory-table"
+    childViewContainer: "#inventory-items-container"
     events:
       "click .header-row-cell": "sortByColumn"
 
