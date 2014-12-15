@@ -2,36 +2,14 @@ define [
   "backbone.marionette"
   "models/item"
   "collections/items"
-  "models/table"
-  "views/database/database_buttons_view"
-  "views/database/database_table_view"
-  "hbs!templates/database/database_template"
+  "hbs!templates/storefront/storefront_template"
 ], (
   Marionette
   ItemModel
   ItemsCollection
-  TableModel
-  DatabaseButtonsView
-  DatabaseTableView
-  databaseTemplate
+  storefrontTemplate
 ) ->
 
   class StorefrontView extends Marionette.LayoutView
-    template: databaseTemplate
-    className: "database-container"
-    regions:
-      tableRegion: "#table-region"
-      buttonsRegion: "#buttons-region"
-
-    initialize: ->
-      @buttonsView = new DatabaseButtonsView
-
-    onShow: ->
-      debugger
-      @buttonsRegion.show(@buttonsView)
-
-      @itemsCollection = new ItemsCollection
-      @tableModel = new TableModel
-      @itemsCollection.fetch()
-      @tableView = new DatabaseTableView(collection: @itemsCollection, model: @tableModel)
-      @tableRegion.show(@tableView)
+    template: storefrontTemplate
+    className: "storefront-container"
