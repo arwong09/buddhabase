@@ -14,25 +14,23 @@ define [
       "click .btn-add" : "addNewItem"
       "keyup .search-bar" : "searchItems"
       "input .search-bar" : "showRefreshIcon"
-      'click .search-bar-close' : "refreshTable"
+      "click .search-bar-close" : "refreshTable"
+
+    ui:
+      $searchBar: '.search-bar'
+      $refreshIcon: '.search-bar-close'
 
     addNewItem: ->
       @trigger("addNewItem")
 
     refreshTable: (e) ->
-      $refreshIcon = $(e.currentTarget)
-      $searchBar = $refreshIcon.prev()
-
-      $searchBar.val('')
-      $refreshIcon.hide()
+      @ui.$searchBar.val('')
+      @ui.$refreshIcon.hide()
 
       @trigger("refreshTable")
 
     showRefreshIcon: (e) ->
-      $searchBar = $(e.currentTarget)
-      $refreshIcon = $searchBar.next()
-      val = $searchBar.val()
-      if val then $refreshIcon.show() else $refreshIcon.hide()
+      if @ui.$searchBar.val() then @ui.$refreshIcon.show() else @ui.$refreshIcon.hide()
 
     searchItems: (e) ->
       unless $(e.currentTarget).val() == '' || e.which != 13
