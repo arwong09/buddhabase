@@ -49,5 +49,6 @@ define [
 
     refreshTable: ->
       @itemsCollection.fetch()
-      @tableView.collection = @itemsCollection
-      @tableView.render()
+        .done =>
+          @tableView.collection = @itemsCollection
+          @tableView.render()
