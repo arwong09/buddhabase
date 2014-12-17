@@ -2,27 +2,27 @@ define [
   "backbone"
   "backbone.marionette"
   "views/modals/item_modal"
-  "hbs!templates/database/database_item_template"
+  "hbs!templates/inventory/inventory_item_template"
   "jquery"
   "underscore"
 ], (
   Backbone
   Marionette
   ItemModal
-  DatabaseItemTemplate
+  InventoryItemTemplate
   $
   _
 ) ->
 
-  class DatabaseItemView extends Marionette.ItemView
-    template: DatabaseItemTemplate
-    className: "database-row"
+  class InventoryItemView extends Marionette.ItemView
+    template: InventoryItemTemplate
+    className: "inventory-row"
     modelEvents:
       "change": "render"
     events:
       "click .fa-check-square"   : "saveNewItem"
       "click .fa-trash"          : "deleteItem"
-      "dblclick .database-item-col" : "showItemModal"
+      "dblclick .inventory-item-col" : "showItemModal"
 
     deleteItem: ->
       @model.destroy()

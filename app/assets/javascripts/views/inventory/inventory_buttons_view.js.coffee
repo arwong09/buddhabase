@@ -1,15 +1,15 @@
 define [
   "backbone"
   "backbone.marionette"
-  "hbs!templates/database/database_buttons_template"
+  "hbs!templates/inventory/inventory_buttons_template"
 ], (
   Backbone
   Marionette
-  DatabaseButtonsTemplate
+  InventoryButtonsTemplate
 ) ->
 
-  class DatabaseButtonsView extends Marionette.ItemView
-    template: DatabaseButtonsTemplate
+  class InventoryButtonsView extends Marionette.ItemView
+    template: InventoryButtonsTemplate
     events:
       "click .btn-add" : "addNewItem"
       "keyup .search-bar" : "searchItems"

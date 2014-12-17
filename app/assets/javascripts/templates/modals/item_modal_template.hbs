@@ -14,7 +14,7 @@
   </div>
 
   <div class="modal-body-right">
-    <form action="/api/items/{{id}}" method="post" enctype="multipart/form-data">
+    <form action="/api/inventory/items/{{id}}" method="post" enctype="multipart/form-data">
       <input type="hidden" name="_method" value="patch">
       <input type="file" id="image-input" name="image">
       <label for="image-input">
