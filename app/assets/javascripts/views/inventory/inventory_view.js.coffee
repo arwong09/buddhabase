@@ -27,6 +27,7 @@ define [
       @buttonsView = new InventoryButtonsView
       @listenTo(@buttonsView, "addNewItem", @addNewItem)
       @listenTo(@buttonsView, "searchItems", @searchItems)
+      @listenTo(@buttonsView, "refreshInventoryTable", @refreshTable)
 
     onShow: -> # N.B. needs to change if this view is rendered more than once
       @buttonsRegion.show(@buttonsView)
@@ -45,3 +46,9 @@ define [
       filteredCollection.filterBySearch(searchTerm)
       @tableView.collection = filteredCollection
       @tableView.render()
+
+    refreshTable: ->
+      @itemsCollection.fetch()
+        .done =>
+          @tableView.collection = @itemsCollection
+          @tableView.render()
