@@ -27,7 +27,7 @@ define [
       @buttonsView = new InventoryButtonsView
       @listenTo(@buttonsView, "addNewItem", @addNewItem)
       @listenTo(@buttonsView, "searchItems", @searchItems)
-      @listenTo(@buttonsView, "refreshTable", @refreshTable)
+      @listenTo(@buttonsView, "refreshInventoryTable", @refreshTable)
 
     onShow: -> # N.B. needs to change if this view is rendered more than once
       @buttonsRegion.show(@buttonsView)

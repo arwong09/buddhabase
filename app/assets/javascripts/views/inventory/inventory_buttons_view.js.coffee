@@ -13,8 +13,8 @@ define [
     events:
       "click .btn-add" : "addNewItem"
       "keyup .search-bar" : "searchItems"
-      "input .search-bar" : "showRefreshIcon"
-      "click .search-bar-close" : "refreshTable"
+      "input .search-bar" : "toggleRefreshIcon"
+      "click .search-bar-close" : "refreshInventoryTable"
 
     ui:
       $searchBar: '.search-bar'
@@ -23,13 +23,13 @@ define [
     addNewItem: ->
       @trigger("addNewItem")
 
-    refreshTable: (e) ->
+    refreshInventoryTable: (e) ->
       @ui.$searchBar.val("")
       @ui.$refreshIcon.hide()
 
-      @trigger("refreshTable")
+      @trigger("refreshInventoryTable")
 
-    showRefreshIcon: (e) ->
+    toggleRefreshIcon: (e) ->
       if @ui.$searchBar.val() then @ui.$refreshIcon.show() else @ui.$refreshIcon.hide()
 
     searchItems: (e) ->
