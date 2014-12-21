@@ -8,6 +8,15 @@ $halfSpace: 14px
   width: calc(100% - (2 * #{$fullSpace}))
   height: calc(100% - (2 * #{$fullSpace}))
 
+  &:not(:first-child):before
+    content: ""
+    width: 100%
+    height: 1px
+    background-color: $cc
+    display: block
+    position: relative
+    bottom: $halfSpace
+
   .content.columns,
   .content.rows
     box-sizing: border-box
@@ -43,4 +52,4 @@ $halfSpace: 14px
     &:not(:first-child)
       padding-top: $halfSpace + 1px
       border-top: 1px solid $cc
-      height: calc((100% - (2 * #{$fullSpace})) / (3 + #{$halfSpace}))
+      height: calc((100% - (2 * #{$fullSpace})) / 3 + #{$halfSpace})
