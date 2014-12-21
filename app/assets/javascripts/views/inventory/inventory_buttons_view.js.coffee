@@ -33,6 +33,6 @@ define [
       if @ui.$searchBar.val() then @ui.$refreshIcon.show() else @ui.$refreshIcon.hide()
 
     searchItems: (e) ->
-      if $(e.currentTarget).val() != "" || e.which == 13
+      if $(e.currentTarget).val() != ""
         searchTerm = e.currentTarget.value
         @trigger("searchItems", searchTerm)
