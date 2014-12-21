@@ -1,0 +1,55 @@
+$fullSpace: 29px
+$halfSpace: 14px
+
+.container
+  position: relative
+  padding: 0
+  margin: $fullSpace
+  width: calc(100% - (2 * #{$fullSpace}))
+  height: calc(100% - (2 * #{$fullSpace}))
+
+  &:not(:first-child):before
+    content: ""
+    width: 100%
+    height: 1px
+    background-color: $cc
+    display: block
+    position: relative
+    bottom: $halfSpace
+
+  .content.columns,
+  .content.rows
+    box-sizing: border-box
+    overflow: hidden
+
+  .two.columns
+    float: left
+    height: 100%
+    width: calc(50% - #{$halfSpace})
+
+    &:first-child
+      margin-right: $halfSpace
+
+  .two.grid.columns
+    &:last-child
+      border-left: 1px solid $cc
+      padding-left: $halfSpace
+      width: calc(50% - #{$halfSpace} - 1px)
+
+  .two.content.columns
+    &:last-child
+      border-left: 1px solid $cc
+      padding-left: $halfSpace + 1px
+
+  .three.content.rows
+    float: left
+    width: 100%
+    height: calc((100% - (2 * #{$fullSpace})) / 3)
+
+    &:not(:last-child)
+      margin-bottom: $halfSpace
+
+    &:not(:first-child)
+      padding-top: $halfSpace + 1px
+      border-top: 1px solid $cc
+      height: calc((100% - (2 * #{$fullSpace})) / 3 + #{$halfSpace})

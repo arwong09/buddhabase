@@ -1,15 +1,21 @@
 define [
   "backbone.marionette"
-  "models/item"
-  "collections/items"
+  "views/storefront/storefront_page_view"
+  "collections/storefront/storefront_pages"
   "hbs!templates/storefront/storefront_template"
 ], (
   Marionette
-  ItemModel
-  ItemsCollection
+  StorefrontPageView
+  PagesCollection
   storefrontTemplate
 ) ->
 
-  class StorefrontView extends Marionette.LayoutView
+  class StorefrontView extends Marionette.CompositeView
     template: storefrontTemplate
     className: "storefront-container"
+    childView: StorefrontPageView
+    childViewContainer: "#storefront-pages-container"
+
+    initialize: ->
+      @collection = new PagesCollection
+      @collection.fetch()
