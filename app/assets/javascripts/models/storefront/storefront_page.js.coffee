@@ -7,8 +7,6 @@ define [
 ) ->
 
   class StorefrontPage extends Backbone.Model
-    url: "/?start=78&limit=5"
-
     initialize: (itemData) ->
       @set("Items", itemData)
 

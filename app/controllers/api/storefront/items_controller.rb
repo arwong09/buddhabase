@@ -9,7 +9,7 @@ class Api::Storefront::ItemsController < ApplicationController
     # first = params[:start].to_i
     # last = first + params[:limit].to_i - 1
     # items = Item.where(id: first..last)
-    items = Item.where(id: 78..82)
+    items = Item.all
     items.map do |item|
       item.attributes.merge(image_url: item.image.url)
     end

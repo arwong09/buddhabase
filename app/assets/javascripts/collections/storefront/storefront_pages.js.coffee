@@ -9,5 +9,13 @@ define [
   class StorefrontPages extends Backbone.Collection
     url: -> "/api/storefront/items"
     model: StorefrontPage
-    parse: (data) ->
-      [_.sample(data, 5)]
+    parse: (itemsData) ->
+      items = []
+      tempArray = []
+      _.each(itemsData, (itemData, i) ->
+        tempArray.push(itemData)
+        if (i + 1) % 5 == 0
+          items.push(tempArray)
+          tempArray = []
+      )
+      return items
