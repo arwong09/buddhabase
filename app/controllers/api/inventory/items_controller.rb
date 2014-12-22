@@ -1,8 +1,6 @@
 class Api::Inventory::ItemsController < ApplicationController
   def index
-    items = Item.all
-
-    render json: items
+    render json: build_response_hash
   end
 
   def create
@@ -37,7 +35,17 @@ class Api::Inventory::ItemsController < ApplicationController
 
   private
 
+  def build_response_hash
+    items.map do |item|
+      item.attributes.merge(image_url: item.image.url)
+    end
+  end
+
   def item_params
     params.require(:item).permit(:name, :quantity, :category, :description, :image)
+  end
+
+  def items
+    @items ||= Item.all
   end
 end

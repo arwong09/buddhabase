@@ -4,4 +4,3 @@ define ["backbone"], (Backbone) ->
 
     initialize: (itemData) ->
       @set itemData
-
