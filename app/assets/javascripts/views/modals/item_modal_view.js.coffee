@@ -13,7 +13,10 @@ define [
     template: itemModalTemplate
     events:
       "change .image-input" : "previewImage"
-      "submit" : "submit"
+      "submit" : "uploadImage"
+
+    initialize: ->
+      @prevImage = @model.get('image_url')
 
     previewImage: (e) ->
       file = e.currentTarget.files[0]
@@ -22,3 +25,8 @@ define [
         @model.set({image_url: e.target.result})
         @$('.modal-image-preview').attr('src', e.target.result)
       reader.readAsDataURL(file)
+
+    uploadImage: (e) ->
+      e.preventDefault()
+      @model.set({image: @model.get('image_url')})
+      @model.save()
