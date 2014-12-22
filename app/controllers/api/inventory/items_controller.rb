@@ -17,7 +17,7 @@ class Api::Inventory::ItemsController < ApplicationController
   def update
     item = Item.find(params[:id])
     if item.update_attributes(image: params[:image])
-      render json: {}, status: :ok
+      render json: { success: true }, status: :ok
     else
       render status: :unprocessable_entity
     end
@@ -37,7 +37,7 @@ class Api::Inventory::ItemsController < ApplicationController
 
   def build_response_hash
     items.map do |item|
-      item.attributes.merge(image_url: item.image.url)
+      item.attributes.merge(image_url: item.image(:medium))
     end
   end
 

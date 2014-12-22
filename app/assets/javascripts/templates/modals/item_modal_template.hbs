@@ -14,11 +14,10 @@
   </div>
 
   <div class="modal-body-right">
-    <form action="/api/inventory/items/{{id}}" method="post" enctype="multipart/form-data">
-      <input type="hidden" name="_method" value="patch">
-      <input type="file" id="image-input" name="image">
+    <form>
+      <input type="file" enctype="multipart/form-data" id="image-input" class="image-input" name="image">
       <label for="image-input">
-        <i class="fa fa-image" />
+        {{{imagePreview image_url}}}
       </label>
       <input type="submit" value="upload">
     </form>

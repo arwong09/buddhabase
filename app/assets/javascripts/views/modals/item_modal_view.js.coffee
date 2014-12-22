@@ -11,3 +11,9 @@ define [
   class ItemModalView extends Marionette.ItemView
     className: "item-modal"
     template: itemModalTemplate
+    events:
+      "change .image-input" : "previewImage"
+      "submit" : "submit"
+
+    submit: (e) ->
+      e.preventDefault()
