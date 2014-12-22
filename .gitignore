@@ -17,3 +17,4 @@
 
 # Ignore uploaded images.
 /public/system/items/images
+*.jpg

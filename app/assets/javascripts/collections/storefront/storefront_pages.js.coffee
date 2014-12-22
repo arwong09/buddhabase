@@ -7,5 +7,7 @@ define [
 ) ->
 
   class StorefrontPages extends Backbone.Collection
-    url: -> "/api/inventory/items"
+    url: -> "/api/storefront/items"
     model: StorefrontPage
+    parse: (data) ->
+      [_.sample(data, 5)]
