@@ -15,5 +15,10 @@ define [
       "change .image-input" : "previewImage"
       "submit" : "submit"
 
-    submit: (e) ->
-      e.preventDefault()
+    previewImage: (e) ->
+      file = e.currentTarget.files[0]
+      reader = new FileReader()
+      reader.onload = (e) =>
+        @model.set({image_url: e.target.result})
+        @$('.modal-image-preview').attr('src', e.target.result)
+      reader.readAsDataURL(file)
