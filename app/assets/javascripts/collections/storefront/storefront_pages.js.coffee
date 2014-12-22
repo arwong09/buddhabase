@@ -18,4 +18,5 @@ define [
           items.push(tempArray)
           tempArray = []
       )
+      items.push(tempArray) if tempArray
       return items
