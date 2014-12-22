@@ -23,21 +23,21 @@ $halfSpace: ($spacing / 2) - $borderWidth
   //   position: relative
   //   bottom: $halfSpace
 
-  .columns,
-  .rows
+  .column,
+  .row
     box-sizing: border-box
     float: left
 
-  .columns
+  .column
     height: 100%
 
-  .rows
+  .row
     width: 100%
 
   .content
     overflow: hidden
 
-  .two.grid.columns
+  .two.column.layout
     &:first-child
       margin-right: $halfSpace
       width: calc(50% - #{$halfSpace})
@@ -47,17 +47,17 @@ $halfSpace: ($spacing / 2) - $borderWidth
       padding-left: $halfSpace + $borderWidth
       width: 50%
 
-  .content.columns
+  .content.column
     img
       max-height: 100%
       width: auto
 
-  .content.rows
+  .content.row
     img
       max-width: 100%
       height: auto
 
-  .two.content.columns
+  .two.column.content
     &:first-child
       width: calc(50% - #{$halfSpace})
       margin-right: $halfSpace
@@ -67,7 +67,7 @@ $halfSpace: ($spacing / 2) - $borderWidth
       border-left: $borderWidth solid $borderColor
       padding-left: $halfSpace + $borderWidth
 
-  .three.content.rows
+  .three.row.content
     &:not(:last-child)
       margin-bottom: $halfSpace
       height: calc((100% + #{$borderWidth} - (2 * #{$fullSpace})) / 3)
