@@ -27,6 +27,7 @@ define [
       reader.readAsDataURL(file)
 
     uploadImage: (e) ->
+      # TODO: handle no image being uploaded & some sort of ui showing the success of an uploaded image (spinner/progress bar)
       e.preventDefault()
       @model.set({image: @model.get('image_url')})
       @model.save()
