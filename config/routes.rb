@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     namespace :inventory do
       resources :items, only: [:index, :create, :update, :destroy]
     end
+
+    namespace :storefront do
+      resources :items, only: [:index]
+    end
   end
 
   namespace :inventory do
