@@ -1,7 +1,11 @@
-$fullSpace: 29px
-$halfSpace: 14px
-$borderWidth: 1px
+// customize the grid here
+$borderWidth: 0px
 $borderColor: $cc
+$spacing: 30px
+
+// these are calculated for you..
+$fullSpace: $spacing - $borderWidth
+$halfSpace: ($spacing / 2) - $borderWidth
 
 .container
   position: relative
@@ -10,14 +14,14 @@ $borderColor: $cc
   height: calc(100% - (2 * #{$fullSpace}))
 
   // border below each container
-  &:not(:first-child):before
-    content: ""
-    width: 100%
-    height: $borderWidth
-    background-color: $borderColor
-    display: block
-    position: relative
-    bottom: $halfSpace
+  // &:not(:first-child):before
+  //   content: ""
+  //   width: 100%
+  //   height: $borderWidth
+  //   background-color: $borderColor
+  //   display: block
+  //   position: relative
+  //   bottom: $halfSpace
 
   .columns,
   .rows
@@ -34,11 +38,14 @@ $borderColor: $cc
     overflow: hidden
 
   .two.grid.columns
-    width: 50%
+    &:first-child
+      margin-right: $halfSpace
+      width: calc(50% - #{$halfSpace})
 
     &:last-child
       border-left: $borderWidth solid $borderColor
       padding-left: $halfSpace + $borderWidth
+      width: 50%
 
   .content.columns
     img
@@ -56,7 +63,7 @@ $borderColor: $cc
       margin-right: $halfSpace
 
     &:last-child
-      width: calc(50% - #{$halfSpace} + #{$borderWidth})
+      width: 50%
       border-left: $borderWidth solid $borderColor
       padding-left: $halfSpace + $borderWidth
 

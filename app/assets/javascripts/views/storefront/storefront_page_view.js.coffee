@@ -1,13 +1,21 @@
 define [
   "backbone.marionette"
-  "models/storefront/storefront_page"
-  "hbs!templates/storefront/storefront_page_template"
+  "hbs!templates/storefront/storefront_page_template_A"
+  "hbs!templates/storefront/storefront_page_template_B"
 ], (
   Marionette
-  Page
-  storefrontPageTemplate
+  storefrontPageTemplateA
+  storefrontPageTemplateB
 ) ->
 
   class StorefrontPageView extends Marionette.ItemView
-    template: storefrontPageTemplate
     className: "container"
+    getTemplate: ->
+      number = Math.floor((Math.random() * 2) + 1)
+      switch number
+        when 1
+          storefrontPageTemplateA
+        when 2
+          storefrontPageTemplateB
+        else
+          console.error "unhandled else in getTemplate"
