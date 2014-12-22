@@ -17,4 +17,5 @@
 
 # Ignore uploaded images.
 /public/system/items/images
+/devpics
 *.jpg
