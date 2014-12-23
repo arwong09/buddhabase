@@ -12,5 +12,3 @@ define [
 
   class NavbarView extends Marionette.ItemView
     template: navbarTemplate
-
-    initialize: ->
