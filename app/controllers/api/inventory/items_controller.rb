@@ -5,10 +5,10 @@ class Api::Inventory::ItemsController < ApplicationController
 
   def create
     item = Item.new(item_params)
-    item.generate_new_sku
 
     if item.save!
-      render json: item
+      item_attributes = item.attributes.merge(image_url: item.image(:medium))
+      render json: item_attributes
     else
       render json: item, status: :unprocessable_entity
     end
